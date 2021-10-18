@@ -1,5 +1,5 @@
-import React from 'react'
-import withPost, { Content } from 'nextein/post'
+import { getData, getPost } from 'nextein/fetcher'
+import Content from 'nextein/content'
 
 import site from '../site'
 import { Meta } from '../components/meta'
@@ -7,7 +7,26 @@ import { Navigation } from '../components/navigation'
 import { Header } from '../components/header'
 import { Footer } from '../components/footer'
 
-function Post ({ post }) {  
+export async function getStaticPaths () {
+  const data = await getData()
+
+  return {
+    paths: data.map(({ name }) => ({ params: { post:name }})),
+    fallback: false
+  }
+}
+
+export async function getStaticProps ({ params }) {
+  const post = await getPost({ name: params.post })
+
+  return {
+    props: {
+      post
+    }
+  }
+}
+
+export default function Post ({ post }) {  
   const author = site.authors[post.data.author]
   const source = site.authors[post.data.source]
   return (
@@ -33,5 +52,3 @@ function Post ({ post }) {
     </div>
   )
 }
-
-export default withPost(Post)
