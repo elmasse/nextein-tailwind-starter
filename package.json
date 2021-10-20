@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.3.6",
     "next": "^11.1.2",
-    "nextein": "^4.0.0-beta.0",
+    "nextein": "^4.0.0-beta.3",
     "postcss": "^8.3.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
