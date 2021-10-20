@@ -11,13 +11,13 @@ export async function getStaticPaths () {
   const data = await getData()
 
   return {
-    paths: data.map(({ name }) => ({ params: { post:name }})),
+    paths: data.map(({ year, month, day, slug }) => ({ params: { blog:[year, month, day, slug] }})),
     fallback: false
   }
 }
 
 export async function getStaticProps ({ params }) {
-  const post = await getPost({ name: params.post })
+  const post = await getPost({ slug: params.blog[3] })
 
   return {
     props: {

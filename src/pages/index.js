@@ -32,11 +32,12 @@ export default function Index ({ posts }) {
           {posts.map(post => {
             const author = site.authors[post.data.author]
             const source = site.authors[post.data.source]
+            const { year, month, day, slug, title } = post.data
             return (
-              <article key={post.data.url} className="py-10 space-y-10">
+              <article key={slug} className="py-10 space-y-10">
                 <header>
                   <h1 className="text-4xl tracking-tight font-semibold text-pink-500 sm:text-5xl md:text-6xl">
-                    <Link as={`/${post.data.name}`} href='/[post]' ><a>{post.data.title}</a></Link>
+                    <Link as={`/${year}/${month}/${day}/${slug}`} href='/[...blog]'><a>{title}</a></Link>
                   </h1>
                   <div className="w-full mt-0.5 font-normal text-pink-500">
                     <dt className="inline">
@@ -48,7 +49,7 @@ export default function Index ({ posts }) {
                 </header>
                 <Content className="prose lg:prose-lg xl:prose-xl" {...post} excerpt />
                 <div>
-                  <Link as={`/${post.data.name}`} href='/[post]'><a className="text-purple-500 font-medium">Read more</a></Link>
+                  <Link as={`/${year}/${month}/${day}/${slug}`} href='/[...blog]'><a className="text-purple-500 font-medium">Read more</a></Link>
                 </div>
               </article>
             )
