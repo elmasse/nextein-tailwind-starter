@@ -33,7 +33,7 @@ export default function Post ({ post }) {
     <div>
       <Meta title={`${site.name} - ${post.data.title}`} />
       <Header>
-        <Navigation className="absolute inset-0 text-white"/>
+        <Navigation className="text-white border-b-2 border-pink-500 absolute inset-x-0 top-0"/>
         <div className="my-0 mx-auto p-4 max-w-7xl">
           <h1 className="text-6xl text-white sm:text-7xl md:text-8xl">{post.data.title}</h1>
           <div className="w-full mt-0.5 font-medium text-purple-100">
@@ -45,7 +45,7 @@ export default function Post ({ post }) {
           </div>
         </div>
       </Header>
-      <main className="my-10 mx-auto p-4 max-w-7xl prose lg:prose-lg xl:prose-xl">
+      <main className="my-10 mx-auto p-4 prose md:prose-lg xl:prose-2xl">
         <Content {...post} />
       </main>
       <Footer />
