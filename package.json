@@ -4,21 +4,22 @@
   "description": "A nextein starter kit with tailwind",
   "private": true,
   "scripts": {
-    "dev": "nextein",
-    "export": "nextein build && nextein export",
-    "now-build": "npm run export"
+    "dev": "next",
+    "export": "next build && next export",
+    "analyze": "ANALYZE=true next build"
   },
   "keywords": [],
   "author": "Maximiliano Fierro",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.0",
+    "@next/bundle-analyzer": "^12.0.5",
+    "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.3.6",
-    "next": "^11.1.2",
-    "nextein": "^3.2.4",
+    "next": "12.0.5",
+    "nextein": "^4.0.0",
     "postcss": "^8.3.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "tailwindcss": "^2.2.16"
+    "tailwindcss": "^3.0.8"
   }
 }
