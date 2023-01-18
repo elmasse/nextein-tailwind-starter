@@ -37,7 +37,7 @@ export default function Index ({ posts }) {
               <article key={slug} className="py-10 space-y-10">
                 <header>
                   <h1 className="text-4xl tracking-tight font-semibold text-pink-500 sm:text-5xl md:text-6xl">
-                    <Link as={`/${year}/${month}/${day}/${slug}`} href='/[...blog]'><a>{title}</a></Link>
+                    <Link as={`/${year}/${month}/${day}/${slug}`} href='/[...blog]'>{title}</Link>
                   </h1>
                   <div className="w-full mt-0.5 font-normal text-pink-500">
                     <dt className="inline">
@@ -49,14 +49,17 @@ export default function Index ({ posts }) {
                 </header>
                 <Content className="prose lg:prose-lg xl:prose-xl" {...post} excerpt />
                 <div>
-                  <Link as={`/${year}/${month}/${day}/${slug}`} href='/[...blog]'><a className="text-purple-500 font-medium">Read more</a></Link>
+                  <Link
+                    as={`/${year}/${month}/${day}/${slug}`}
+                    href='/[...blog]'
+                    className="text-purple-500 font-medium">Read more</Link>
                 </div>
               </article>
-            )
+            );
           })}
         </section>
       </main>
       <Footer />
     </div>
-  )
+  );
 }
